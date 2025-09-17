@@ -1,0 +1,40 @@
+server:
+  port: 8081
+spring:
+  main:
+    allow-circular-references: true
+  profiles:
+    active: local
+  ai:
+    dashscope:
+      api-key: ${ali.apiKey}
+      chat:
+        options:
+          model: qwen-plus
+  servlet:
+    multipart:
+      max-file-size: 10MB
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss  # 常用格式，如 "2025-09-02 15:30:45"
+    time-zone: GMT+8  # 建议配合时区使用，避免时区偏移问题
+mybatis-plus:
+  global-config:
+    enable-sql-runner: true #使用SqlRunner的前提是打开SqlRunner开关
+    banner: false
+    db-config:
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn
+sa-token:
+  token-name: crane
+  timeout: 86400 # 1天
+  is-read-cookie: true # 是否从 cookie 里读取 token
+  auto-renew: true # 是否打开自动续签 activeTimeout （如果此值为 true, 框架会在每次直接或间接调用 getLoginId() 时进行一次过期检查与续签操作）
+  is-concurrent: false # 是否开启并发控制
+  token-style: uuid   # token 风格（默认可取值：uuid、simple-uuid、random-32、random-64、random-128、tik）
+  is-log: false  # 是否输出操作日志
+  is-print: false # 是否打印操作日志
