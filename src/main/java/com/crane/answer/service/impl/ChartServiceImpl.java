@@ -37,7 +37,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * @author linghe01
+ * @author crane
  * @description 针对表【chart(图表信息表)】的数据库操作Service实现
  * @createDate 2025-09-15 14:18:39
  */

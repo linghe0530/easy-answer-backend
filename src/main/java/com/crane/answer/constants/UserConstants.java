@@ -7,6 +7,11 @@ package com.crane.answer.constants;
  **/
 public interface UserConstants {
 
+
+    /**
+     * pc端登录
+     */
+    String PC = "pc";
     /**
      * 用户登录态键
      */

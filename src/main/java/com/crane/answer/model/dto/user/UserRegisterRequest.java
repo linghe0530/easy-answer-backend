@@ -20,11 +20,17 @@ public class UserRegisterRequest implements Serializable {
     @NotBlank
     @Length(min = 4, max = 64)
     private String userAccount;
+
     @NotBlank
     @Length(min = 8, max = 64)
     private String userPassword;
+
     @NotBlank
     @Length(min = 8, max = 64)
     private String checkPassword;
+
+    @NotBlank
+    @Length(min = 2, max = 100)
+    private String userName;
 
 }

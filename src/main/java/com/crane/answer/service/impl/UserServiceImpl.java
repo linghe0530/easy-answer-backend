@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.crane.answer.constants.UserConstants;
 import com.crane.answer.exception.BusinessException;
 import com.crane.answer.exception.ErrorCode;
+import com.crane.answer.mapper.UserMapper;
 import com.crane.answer.model.dto.oauth.GiteeUserInfo;
 import com.crane.answer.model.dto.user.UserLoginRequest;
 import com.crane.answer.model.dto.user.UserQueryRequest;
@@ -18,7 +19,6 @@ import com.crane.answer.model.enums.UserRoleEnum;
 import com.crane.answer.model.po.User;
 import com.crane.answer.model.vo.UserResp;
 import com.crane.answer.service.UserService;
-import com.crane.answer.mapper.UserMapper;
 import com.crane.answer.utils.DigestUtil;
 import com.crane.answer.utils.JsonUtils;
 import com.crane.answer.utils.StringUtils;
@@ -63,7 +63,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
                 .one();
         ThrowUtils.throwIf(user == null, ErrorCode.PARAMS_ERROR, "账号或密码错误");
         UserResp resp = BeanUtil.copyProperties(user, UserResp.class);
-        StpUtil.login(user.getId());
+        //同端互斥登录
+        StpUtil.login(user.getId(), UserConstants.PC);
+        // 获取当前配置
         StpUtil.getSession().set(UserConstants.USER_LOGIN_STATE, resp);
         return resp;
     }
@@ -73,7 +75,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         String userAccount = request.getUserAccount();
         String userPassword = request.getUserPassword();
         String checkPassword = request.getCheckPassword();
-
+        String userName = request.getUserName();
         //1.校验参数
         if (!Objects.equals(userPassword, checkPassword)) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "两次输入密码不一致");
@@ -90,8 +92,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         User user = new User();
         user.setUserAccount(userAccount);
         user.setUserPassword(encryptPassword);
-        user.setUserName("无名");
+        user.setUserName(userName);
         user.setUserRole(UserRoleEnum.USER.getValue());
+        user.setUserAvatar("https://easy-answer-1328272410.cos.ap-beijing.myqcloud.com/86d512d283bece69c1d7be9275e96a0.jpg");
         //4.插入数据库
         boolean result = this.save(user);
         if (!result) {
@@ -172,7 +175,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
             user.setUserRole(UserRoleEnum.USER.getValue());
             this.save(user);
         }
-        StpUtil.login(user.getId());
+        StpUtil.login(user.getId(), UserConstants.PC);
         StpUtil.getSession().set(UserConstants.USER_LOGIN_STATE, this.getUserResp(user));
         return "";
     }

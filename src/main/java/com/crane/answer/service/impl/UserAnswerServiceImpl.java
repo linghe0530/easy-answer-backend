@@ -186,7 +186,7 @@ public class UserAnswerServiceImpl extends ServiceImpl<UserAnswerMapper, UserAns
         queryWrapper.eq(ObjectUtils.isNotEmpty(appType), UserAnswer::getAppType, appType);
         queryWrapper.eq(ObjectUtils.isNotEmpty(resultScore), UserAnswer::getResultScore, resultScore);
         queryWrapper.eq(ObjectUtils.isNotEmpty(scoringStrategy), UserAnswer::getScoringStrategy, scoringStrategy);
-
+        queryWrapper.orderByDesc(UserAnswer::getCreateTime);
 
         return queryWrapper;
     }

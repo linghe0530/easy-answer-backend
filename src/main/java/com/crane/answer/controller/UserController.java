@@ -33,9 +33,9 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public R<String> userRegister(@RequestBody UserRegisterRequest request) {
+    public R<Long> userRegister(@RequestBody UserRegisterRequest request) {
         Long userId = userService.userRegister(request);
-        return R.ok(userId.toString());
+        return R.ok(userId);
     }
 
     @GetMapping("/get")

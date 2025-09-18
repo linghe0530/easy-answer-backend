@@ -45,7 +45,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @author linghe01
+ * @author crane
  * @description 针对表【picture(图片)】的数据库操作Service实现
  * @createDate 2025-09-16 19:12:24
  */

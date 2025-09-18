@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
- * @author linghe01
+ * @author crane
  * @description 针对表【picture(图片)】的数据库操作Service
  * @createDate 2025-09-16 19:12:24
  */

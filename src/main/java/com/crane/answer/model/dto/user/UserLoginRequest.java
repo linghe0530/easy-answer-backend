@@ -24,4 +24,6 @@ public class UserLoginRequest implements Serializable {
     @Length(min = 4, max = 64, message = "用户密码错误")
     private String userPassword;
 
+
+    private Boolean remember;
 }
