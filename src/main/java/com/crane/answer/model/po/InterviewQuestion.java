@@ -1,9 +1,7 @@
 package com.crane.answer.model.po;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
@@ -18,7 +16,7 @@ public class InterviewQuestion implements Serializable {
     /**
      * id
      */
-    @TableId(value = "id", type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
     private Long id;
 
     /**
@@ -67,6 +65,7 @@ public class InterviewQuestion implements Serializable {
      * 是否删除
      */
     @TableField(value = "is_delete")
+    @TableLogic
     private Integer isDelete;
 
     @TableField(exist = false)
