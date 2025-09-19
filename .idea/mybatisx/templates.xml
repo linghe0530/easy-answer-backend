@@ -69,16 +69,20 @@
             <option name="tableUIInfoList">
               <list>
                 <TableUIInfo>
-                  <option name="className" value="InterviewBankQuestion" />
-                  <option name="tableName" value="interview_bank_question" />
+                  <option name="className" value="ForumArticleAttachment" />
+                  <option name="tableName" value="forum_article_attachment" />
                 </TableUIInfo>
                 <TableUIInfo>
-                  <option name="className" value="InterviewQuestion" />
-                  <option name="tableName" value="interview_question" />
+                  <option name="className" value="ForumComment" />
+                  <option name="tableName" value="forum_comment" />
                 </TableUIInfo>
                 <TableUIInfo>
-                  <option name="className" value="InterviewQuestionBank" />
-                  <option name="tableName" value="interview_question_bank" />
+                  <option name="className" value="LikeRecord" />
+                  <option name="tableName" value="like_record" />
+                </TableUIInfo>
+                <TableUIInfo>
+                  <option name="className" value="UserMessage" />
+                  <option name="tableName" value="user_message" />
                 </TableUIInfo>
               </list>
             </option>
