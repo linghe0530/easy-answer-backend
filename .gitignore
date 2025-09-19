@@ -38,7 +38,5 @@ build/
 .DS_Store
 
 application-local.yml
-shardingsphere-config.yaml
+
 sql/**
-data.xlsx
-score.xlsx
