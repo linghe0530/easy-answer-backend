@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.crane.answer.mapper.ForumCommentMapper">
+
+    <resultMap id="BaseResultMap" type="com.crane.answer.model.po.ForumComment">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="pCommentId" column="p_comment_id" jdbcType="BIGINT"/>
+            <result property="articleId" column="article_id" jdbcType="BIGINT"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="imgPath" column="img_path" jdbcType="VARCHAR"/>
+            <result property="userId" column="user_id" jdbcType="BIGINT"/>
+            <result property="nickName" column="nick_name" jdbcType="VARCHAR"/>
+            <result property="userIpAddress" column="user_ip_address" jdbcType="VARCHAR"/>
+            <result property="replyUserId" column="reply_user_id" jdbcType="BIGINT"/>
+            <result property="replyNickName" column="reply_nick_name" jdbcType="VARCHAR"/>
+            <result property="topType" column="top_type" jdbcType="TINYINT"/>
+            <result property="postTime" column="post_time" jdbcType="TIMESTAMP"/>
+            <result property="goodCount" column="good_count" jdbcType="INTEGER"/>
+            <result property="status" column="status" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,p_comment_id,article_id,
+        content,img_path,user_id,
+        nick_name,user_ip_address,reply_user_id,
+        reply_nick_name,top_type,post_time,
+        good_count,status
+    </sql>
+</mapper>
