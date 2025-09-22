@@ -81,6 +81,12 @@ public class User implements Serializable {
     @TableField(value = "is_delete")
     private Integer isDelete;
 
+    @TableField(value = "login_ip")
+    private String loginIp;
+
+    @TableField(value = "login_address")
+    private String loginAddress;
+
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }

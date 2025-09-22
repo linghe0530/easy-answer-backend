@@ -44,6 +44,16 @@ public class UserResp implements Serializable {
      */
     private Date createTime;
 
+    /**
+     * 积分
+     */
+    private Integer integral;
+
+
+    /**
+     * 登录地址
+     */
+    private String loginAddress;
     @Serial
     private static final long serialVersionUID = 1L;
 
